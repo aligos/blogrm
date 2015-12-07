@@ -1,10 +1,13 @@
 C.PostPage = React.createClass({
+  propTypes: {
+    slug: React.PropTypes.string.isRequired
+  },
   mixins: [ReactMeteorData],
   getMeteorData() {
-    const handle = Meteor.subscribe('singlePost', this.props._id);
+    const handle = Meteor.subscribe('singlePost', this.props.slug);
     const data = {};
     if(handle.ready()) {
-      data.post = Posts.findOne({_id: this.props._id});
+      data.post = Posts.findOne({slug: this.props.slug});
     }
     
     return data;

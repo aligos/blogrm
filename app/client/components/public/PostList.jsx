@@ -4,7 +4,7 @@ C.PostList = React.createClass({
     const handle = Meteor.subscribe('posts');
     const data = {};
     if(handle.ready()) {
-      data.posts = Posts.find({}, {sort: {_id: 1}}).fetch();
+      data.posts = Posts.find({}, {sort: {slug: 1}}).fetch();
     }
  
     return data;
@@ -12,8 +12,8 @@ C.PostList = React.createClass({
   getList() {
     return <div className="list-group">
       {this.data.posts.map(task => {
-        const path = FlowRouter.path('Post', {_id: task._id})
-        return <li className="list-group-item" key={task._id}><a href={path}>{task.title}</a></li>
+        const path = FlowRouter.path('Post', {slug: task.slug})
+        return <li className="list-group-item" key={task.slug}><a href={path}>{task.title}</a></li>
       })}
     </div>;
   },

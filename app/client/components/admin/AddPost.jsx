@@ -18,7 +18,6 @@ C.AddPost = React.createClass({
 
         var title = $(event.target).find("[name=title]").val();
         var content = $(event.target).find("[name=content]").val();
-
         var errors = {};
 
         if (!title) {

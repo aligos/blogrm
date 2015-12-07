@@ -1,4 +1,5 @@
 Posts = new Meteor.Collection('posts');
+Posts.friendlySlugs('title');
 if(Meteor.isServer) {
   Posts.remove({});
   Posts.insert({
@@ -10,7 +11,7 @@ if(Meteor.isServer) {
 
 
 Meteor.methods({
-  addPost(title, content) {
+  addPost(title, content, slug) {
     
     if (! Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
@@ -18,7 +19,7 @@ Meteor.methods({
  
     Posts.insert({
       title: title,
-      content: content
+      content: content,
     });
   }
 });

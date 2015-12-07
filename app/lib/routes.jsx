@@ -38,10 +38,10 @@ FlowRouter.route("/post/:_id/edit", {
     }
 });
 
-FlowRouter.route('/post/:_id', {
+FlowRouter.route('/post/:slug', {
   name: 'Post',
   action(params) {
-    renderMainLayoutWith(<C.PostPage _id={params._id} />);
+    renderMainLayoutWith(<C.PostPage slug={params.slug} />);
   }
 });
 

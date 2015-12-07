@@ -51,8 +51,8 @@ C.EditPost = React.createClass({
                         <h1>Add New Post</h1>
 
                         <form onSubmit={this.onSubmit}>
-                            <C.FormInput name="title" type="text" label="Title" value={this.data.post.title} />
-                            <C.FormInput name="content" type="textarea" label="Content" value={this.data.post.content} />
+                            <input name="title" type="text" label="Title" value={this.data.post.title} />
+                            <textarea name="content" type="textarea" label="Content" value={this.data.post.content} />
                             <input type="submit" className="btn btn-default"/>
                         </form>
                     </div>

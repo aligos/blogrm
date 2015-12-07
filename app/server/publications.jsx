@@ -3,6 +3,7 @@ Meteor.publish('posts', () => {
   return Posts.find(selector);
 });
 
-Meteor.publish('singlePost', _id => {
-  return Posts.find({_id});
+
+Meteor.publish('singlePost', slug => {
+  return Posts.find({slug});
 });
